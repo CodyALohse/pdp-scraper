@@ -1,8 +1,12 @@
-# Price Scraper
+# PDP Scraper
 
-Price Scraper is a project to scrape a price from a product page url defined in a Google Sheet, and then send the results to a Slack web hook url.
+PDP Scraper is a project to scrape a price from a product page url defined in a Google Sheet and then send the results to a Slack web hook url.
 
-Implementation uses a Google Sheet with URLS defined in column A to scrape a price from each URL. The URL is loaded via Pyppeteer and the price is scraped. The results are assembled and sent to a Slack web hook. A Google Sheets service account is used to access the Google Sheet.
+Implementation uses a Google Sheet with URLs defined in column A to scrape a price from each URL. The URL is loaded via Pyppeteer and the price is scraped. The results are assembled and sent to a Slack web hook. A Google Sheets service account is used to access the Google Sheet.
+
+## Google Sheets
+
+A Google Sheets service account is required to access and fetch the URLs from the Google Sheet. The service account json file generated from the Google Developer Console should be placed in the price-scraper directory and published to the Azure Function. This file should not be committed to your repo.
 
 ## Azure Functions
 
@@ -16,7 +20,7 @@ https://crontab.guru/
 
 [Azure functions in VS Code][1]
 
-The following Environment Variables are expected in the Azure Function app settings or in the local.settings.json ([Azure functions in VS Code][1]):
+The following Environment Variables are expected in the Azure Function app settings or in the local.settings.json ([Azure functions in VS Code][1]), these values should be kept private and should not be committed to your repo:
 
 ```
 "SLACK_WEB_HOOK_URL": "your_slack_web_hook_url",
