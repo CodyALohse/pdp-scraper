@@ -22,11 +22,6 @@ def buildSection(data: List[SlackData]) -> List[Any]:
 
     return output
 
-        # {
-		# 	"type": "divider"
-		# },
-		
-
 def sendWebHook(fallbackMsg: str, data: List[SlackData]) -> None:
     blocks = buildSection(data)
 
